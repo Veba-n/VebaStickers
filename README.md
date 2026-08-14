@@ -5,7 +5,6 @@
 [![Modrinth Downloads](https://img.shields.io/badge/Modrinth-Available-00AF5C?style=flat-square&logo=modrinth)](https://modrinth.com/plugin/vebastickers)
 [![Compatibility](https://img.shields.io/badge/Platform-Paper%20%7C%20Spigot%20%7C%20Geyser-purple?style=flat-square)](https://github.com/Veba-n/VebaStickers)
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=flat-square)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289DA?style=flat-square&logo=discord)](https://discord.gg/vebacommunity)
 
 > **The ultimate single-JAR cross-platform sticker plugin for Minecraft (Java & Bedrock).**  
 > Send HD Telegram/WhatsApp-style stickers inline or standalone directly in Minecraft chat — fully server-side with zero client-side mod requirements.
