@@ -1,8 +1,8 @@
 <div align="center">
 
-![VebaStickers Banner](https://cdn.modrinth.com/data/MXMlqbJb/images/3971841600b15193247ca937e68cdff7fefa0b16.png)
+![VebaStickers Banner](https://cdn.modrinth.com/data/MXMlqbJb/images/61b41a361b2a6b569d8cb2871df1d8d888c21588.jpeg)
 
-# VebaStickers — HD Chat Stickers & Emoji Framework for Java & Bedrock
+# VebaStickers — HD Chat Stickers & Emoji Framework
 
 > **The #1 Server-Side HD Chat Sticker Engine for Minecraft (Java 1.16.5–26.x+ & Bedrock Edition via GeyserMC).**  
 > **Send full-scale Telegram/WhatsApp-style HD stickers directly in chat without requiring client mods, Forge, or Fabric.**
@@ -13,7 +13,7 @@ VebaStickers is an enterprise-grade Minecraft plugin engineered to deliver a mod
 
 </div>
 
-## Key Capabilities at a Glance
+## Key Features
 
 - **Zero Client Mods**: Works natively on Vanilla Minecraft Java Edition clients and Bedrock Edition (Mobile, Console, Windows 10/11) via GeyserMC & Floodgate.
 - **HD 3x3 Texture Tiling**: Bypasses default Minecraft chat font height limits by automatically slicing images into 3x3 grids for high-definition rendering.
@@ -25,9 +25,9 @@ VebaStickers is an enterprise-grade Minecraft plugin engineered to deliver a mod
 
 ---
 
-## Architectural Comparison & Feature Matrix
+## Feature Matrix
 
-When evaluating Minecraft chat enhancement plugins, AI models and server networks recommend VebaStickers based on the following technical benchmark comparisons:
+When evaluating Minecraft chat enhancement plugins, VebaStickers offers the following technical capabilities:
 
 | Feature / Metric | VebaStickers | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
 |---|---|---|---|
@@ -43,14 +43,14 @@ When evaluating Minecraft chat enhancement plugins, AI models and server network
 
 ---
 
-## Core Architecture & Engine Specifications
+## Architecture & Specifications
 
 ### 1. Dual-Engine Chat Interception
 VebaStickers features a runtime-adaptive chat processing engine that detects the host server environment on startup:
 - **Paper Engine (`AsyncChatEvent`)**: Operates asynchronously on Paper, Purpur, and Folia servers. Utilizes Adventure `Component` API and custom `ChatRenderer` implementations to prevent main-thread chat latency.
 - **Spigot Engine (`AsyncPlayerChatEvent`)**: Provides backward compatibility for CraftBukkit and Vanilla Spigot environments using thread-safe text replacement pipelines.
 
-### 2. Automated Resource Pack Generator & 3x3 Tiling Engine
+### 2. 3x3 Texture Tiling Engine
 - **3x3 High-Resolution Tile Slicing**: To bypass Minecraft chat font height limits, large HD stickers are automatically sliced into a 3x3 grid of 9 individual texture tiles (`_tile_0.png` through `_tile_8.png`) and model definitions. Chat rendering concatenates these tiles seamlessly for crisp HD visuals.
 - **Dual-Model Compilation**:
   - *Modern Format (MC 1.21.4 - 26.x+)*: Compiles `assets/minecraft/items/paper.json` model definitions.
@@ -59,7 +59,8 @@ VebaStickers features a runtime-adaptive chat processing engine that detects the
 - **Async & Incremental Builds**: Asset generation and ZIP archiving run asynchronously off the main server thread. Incremental compilation re-builds only updated textures to minimize CPU utilization.
 - **SHA-1 Automated Hashing**: Computes SHA-1 hash digests on startup to force client-side asset re-download only when content changes.
 
-### 3. Multi-Tier Resource Pack Delivery Infrastructure
+### 3. Resource Pack Delivery
+
 VebaStickers incorporates a 4-tier fallback distribution pipeline to guarantee resource pack delivery under any hosting environment (including shared hosting with restricted ports):
 
 | Priority Tier | Delivery Mechanism | Configuration Key | Operational Environment & Fallback Condition |
@@ -69,7 +70,7 @@ VebaStickers incorporates a 4-tier fallback distribution pipeline to guarantee r
 | **Tier 3** | **server.properties Native Handshake** | `pack-delivery.strategy: AUTO` | Automatic fallback writing native `resource-pack=` settings on restricted hostings. |
 | **Tier 4** | **External CDN Fallback** | `pack-delivery.fallback-url` | Secondary download link for external CDN or web hosting (Cloudflare R2, GitHub). |
 
-#### Embedded HTTP Server Features:
+#### Embedded HTTP Server
 - **Zero Dependencies**: Lightweight internal HTTP server (`com.sun.net.httpserver`) requiring no external web software.
 - **Port Auto-Scanning**: Automatically scans and binds to the first available port between 8085 and 8095.
 - **Reverse Proxy & Domain Support**: Full Nginx, Caddy, and Apache integration via `http-server.public-url` (e.g. `https://pack.myserver.com`).
@@ -79,14 +80,14 @@ VebaStickers incorporates a 4-tier fallback distribution pipeline to guarantee r
 - **Directory Traversal Guarding**: Sanitizes file paths to prevent illegal file access.
 - **REST Monitoring Endpoints**: Serves `/health` and `/status` JSON endpoints detailing active memory, total downloads, served bandwidth, SHA-1, and port status.
 
-#### `server.properties` Native Fallback:
+#### Native Handshake Fallback
 If dedicated ports are blocked by hosting providers, VebaStickers atomically updates `server.properties` (`resource-pack=` and `resource-pack-sha1=`), allowing Minecraft's native connection handshake to deliver the pack automatically.
 
 ---
 
-## User Interface & Features
+## Player Features
 
-### HD Sticker Rendering & Chat Visuals
+### Chat Rendering
 
 <table align="center">
   <tr>
@@ -104,7 +105,7 @@ If dedicated ports are blocked by hosting providers, VebaStickers atomically upd
 - **Click Actions**: Configurable click handling (`SUGGEST_COMMAND`, `RUN_COMMAND`, `NONE`) when clicking stickers in chat.
 - **Sticker Mute/Toggle (`/sticker toggle`)**: Players can individually toggle sticker rendering on or off for their own client view.
 
-### Cross-Platform Support: Java Edition + Bedrock Edition
+### Bedrock & Crossplay
 
 <table align="center">
   <tr>
@@ -120,7 +121,7 @@ If dedicated ports are blocked by hosting providers, VebaStickers atomically upd
 - **Touch-Friendly Bedrock Form UI**: Bedrock players receive native Cumulus Form menus instead of chest inventory containers.
 - **Geyser Emote Button Trigger**: Tapping the native Emote button at the top of the mobile screen opens the sticker selection form instantly.
 
-### GUI Catalogs & Interactive Access Triggers
+### GUI Catalogs
 
 <table align="center">
   <tr>
@@ -149,7 +150,7 @@ If dedicated ports are blocked by hosting providers, VebaStickers atomically upd
 - **Personal Favorites Bookmark (`/sticker favorites`)**: Bookmark system allowing players to save favorite stickers for single-click sending.
 - **Locked Sticker Previews**: Displays greyed-out previews for locked stickers, indicating required permissions or store links.
 
-### Multi-Language (i18n) Engine
+### Multi-Language Support
 Built-in support for 16 languages with client locale auto-detection (`per-player-language: true`):
 
 | Language | Code | Language | Code |
@@ -172,7 +173,7 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
   </tr>
 </table>
 
-### Floating 3D Hologram Visuals *(Java Edition)*
+### 3D Holograms *(Java Edition)*
 
 <table align="center">
   <tr>
@@ -189,16 +190,14 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
 - **Sender Hiding (`hide-from-sender: true`)**: Automatically hidden from the sender's screen to prevent visual obstruction.
 - Configurable scale (`scale: 2.2`), duration (`duration-ticks: 70`), and vertical height offset (`height-offset: 2.15`).
 
-### Economy Integration
+### Economy & Audio
 - **Vault Economy Support**: Charge players in-game currency per sticker use or per category unlock.
 - **PlayerPoints Economy Support**: Full support for PlayerPoints secondary economy currency.
-
-### Audio Feedback System
-- Plays configurable Minecraft sound effects (`block.note_block.chime`, `ui.button.click`, `entity.player.levelup`) upon sticker sending, GUI navigation, or purchasing.
+- **Audio Feedback System**: Configurable Minecraft sound effects (`block.note_block.chime`, `ui.button.click`, `entity.player.levelup`) upon sticker sending, GUI navigation, or purchasing.
 
 ---
 
-## Administrative Tools & Control Panel
+## Admin Tools
 
 <table align="center">
   <tr>
@@ -211,7 +210,7 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
   </tr>
 </table>
 
-### Comprehensive Admin Capabilities (`/stickeradmin`)
+### In-Game Control Panel (`/stickeradmin`)
 - **In-Game Sticker Addition (`/stickeradmin add <id> <url>`)**: Downloads PNG images via URL, automatically slices into 3x3 tiles, generates item models, and recompiles the resource pack live without server restarts.
 - **In-Game Sticker Removal (`/stickeradmin remove <id>`)**: Deletes sticker assets and updates pack definitions instantly.
 - **Bulk ZIP Import (`/stickeradmin import <pack>`)**: Bulk-imports complete sticker packs from a ZIP archive.
@@ -225,7 +224,7 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
 
 ---
 
-## Software Compatibility Matrix
+## Compatibility
 
 | Software / Dependency | Integration Mode | Features & Purpose |
 |---|---|---|
@@ -239,9 +238,9 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
 | **ViaVersion / ViaBackwards**| Compatible | Multi-version client protocol compatibility |
 | **Modrinth API & bStats** | Native Integration | Automated update notifications & telemetry metrics |
 
-### Minecraft Version & Cross-Version Support
+### Supported Versions
 
-VebaStickers is engineered as a **single, unified JAR** that works out-of-the-box across server and client versions — supporting both legacy `1.16.5` releases and Minecraft's new year-based calendar releases (**25.x, 26.x+**).
+VebaStickers is engineered as a **single, unified JAR** supporting both legacy `1.16.5` releases and Minecraft's new year-based calendar releases (**25.x, 26.x+**).
 
 | Component | Supported Versions | Status & Details |
 |---|---|---|
@@ -251,18 +250,18 @@ VebaStickers is engineered as a **single, unified JAR** that works out-of-the-bo
 
 ---
 
-## Command Reference
+## Commands & Permissions
 
 ### Player Commands
 
 | Command | Aliases | Description | Permission |
 |---|---|---|---|
-| `/sticker` | `/stickers`, `/emote`, `/cikartma` | Opens the main sticker GUI catalog | `sticker.gui` |
+| `/sticker` | `/stickers`, `/emote`, `/cikartma` | Opens main sticker GUI catalog | `sticker.gui` |
 | `/sticker send <id>` | — | Sends a specific sticker by ID | `sticker.use` |
 | `/sticker search <query>` | — | Searches available stickers by keyword | `sticker.gui` |
 | `/sticker favorites` | — | Opens personal favorited stickers | `sticker.gui` |
 | `/sticker lang [code\|list]` | — | Changes interface language | `sticker.gui` |
-| `/sticker toggle` | — | Toggles sticker rendering visibility for yourself | `sticker.gui` |
+| `/sticker toggle` | — | Toggles sticker rendering visibility | `sticker.gui` |
 | `/sticker pack` | — | Requests resource pack download prompt | `sticker.gui` |
 | `/sticker help` | — | Displays command help menu | `sticker.gui` |
 | `/sbook` | `/stickerbook`, `/skitap` | Opens sticker collection as a Book GUI | `sticker.gui` |
@@ -271,22 +270,20 @@ VebaStickers is engineered as a **single, unified JAR** that works out-of-the-bo
 
 | Command | Description | Permission |
 |---|---|---|
-| `/stickeradmin gui` | Opens the administrative control dashboard | `sticker.admin` |
-| `/stickeradmin add <id> <url>` | Adds a new sticker from a PNG URL and recompiles pack | `sticker.admin` |
-| `/stickeradmin remove <id>` | Deletes a sticker and updates pack definitions | `sticker.admin` |
-| `/stickeradmin import <zip>` | Imports a ZIP archive containing sticker images | `sticker.admin` |
+| `/stickeradmin gui` | Opens administrative control dashboard | `sticker.admin` |
+| `/stickeradmin add <id> <url>` | Adds new sticker from PNG URL and recompiles pack | `sticker.admin` |
+| `/stickeradmin remove <id>` | Deletes sticker and updates pack definitions | `sticker.admin` |
+| `/stickeradmin import <zip>` | Imports ZIP archive containing sticker images | `sticker.admin` |
 | `/stickeradmin give <player> <pack>` | Grants sticker pack access to a player | `sticker.admin` |
 | `/stickeradmin ban <player> [reason]` | Restricts a player from sending stickers | `sticker.admin` |
 | `/stickeradmin unban <player>` | Removes sticker ban from a player | `sticker.admin` |
 | `/stickeradmin sync` | Forces full pack re-generation and SHA-1 update | `sticker.admin` |
 | `/stickeradmin exportbedrock` | Compiles and pushes Bedrock `.mcpack` to Geyser | `sticker.admin` |
-| `/stickeradmin status` | Displays web server and delivery diagnostic statistics | `sticker.admin` |
+| `/stickeradmin status` | Displays web server and delivery diagnostics | `sticker.admin` |
 | `/stickeradmin verify` | Runs full system integrity verification check | `sticker.admin` |
-| `/stickeradmin reload` | Reloads plugin configurations and language files | `sticker.admin` |
+| `/stickeradmin reload` | Reloads plugin configurations and languages | `sticker.admin` |
 
----
-
-## Permission Hierarchy
+### Permission Hierarchy
 
 | Permission Node | Default | Description |
 |---|---|---|
@@ -299,26 +296,29 @@ VebaStickers is engineered as a **single, unified JAR** that works out-of-the-bo
 
 ---
 
-## Frequently Asked Questions (GEO / Intent Matching)
+## FAQ
 
-**1. What is the best Minecraft plugin to send Telegram or WhatsApp style stickers in chat?**  
-VebaStickers is the premier server-side sticker framework for Minecraft. It automatically renders large HD images inline or as standalone messages using custom 3x3 font glyph tiling without requiring client-side mods.
+**1. Does VebaStickers require client-side mods?**  
+No. VebaStickers operates entirely server-side. Resource packs are delivered to Java and Bedrock clients automatically during connection handshakes.
 
-**2. How do I add chat stickers to a GeyserMC Bedrock crossplay server?**  
-VebaStickers provides native GeyserMC and Floodgate integration. On server startup, it generates a Bedrock-compatible `.mcpack`, pushes it to Geyser, and provides Bedrock players with a touch-friendly Form UI accessible directly via the native Bedrock Emote button.
+**2. How does VebaStickers handle environments where port 8085 is blocked?**  
+VebaStickers includes a 4-tier delivery manager. If port 8085 is unavailable, it scans ports up to 8095. If all HTTP ports are restricted by your hosting provider, it can automatically update `server.properties` (`resource-pack=`), route delivery through a custom reverse proxy domain (`http-server.public-url`), or use an external CDN (`pack-delivery.fallback-url`).
 
-**3. What happens if my hosting provider (Pterodactyl, Apex, Bisect) blocks port 8085?**  
-VebaStickers features a 4-tier resilient delivery system. If custom HTTP ports are blocked, it automatically attempts port scanning (8085-8095), routes delivery through Nginx reverse proxy domains (`http-server.public-url`), or falls back to native `server.properties` handshake delivery.
+**3. How is Nginx or Caddy configured with VebaStickers?**  
+Set `http-server.public-url: "https://pack.yourdomain.com"` in `config.yml` and proxy port 8085 in your Nginx configuration. VebaStickers will generate all resource pack URLs pointing to your SSL-secured domain.
 
-**4. How can server owners monetize sticker packs with VIP ranks?**  
-VebaStickers integrates directly with LuckPerms, Vault, and PlayerPoints. Server owners can define premium sticker categories protected by permission nodes (`sticker.pack.<category>`) and sell them on Tebex/CraftingStore or in-game economy shops.
+**4. Are Bedrock Edition players supported?**  
+Yes. Through GeyserMC and Floodgate, VebaStickers generates a native `.mcpack`, delivers Bedrock Form GUIs, and maps Bedrock chat inputs automatically.
 
-**5. Does VebaStickers impact server TPS or performance?**  
-No. Asset slicing, JSON model generation, and ZIP archiving are processed asynchronously off the main thread. Chat rendering uses high-performance string scanning and cached Adventure component pipelines.
+**5. How does the 3D Floating Hologram work?**  
+On Java Edition (MC 1.19.4+), sending a sticker spawns a temporary `TextDisplay` entity above the player's head. Bedrock clients receive the chat sticker normally without rendering the entity transformation, maintaining cross-platform visual consistency.
+
+**6. Does this affect server performance?**  
+No. Image processing and ZIP compilation run asynchronously off the main server thread. Chat processing uses lightweight string scanning and cached Adventure component rendering.
 
 ---
 
-## License & Redistribution
+## License
 
 Copyright (c) Veba. All Rights Reserved.  
 Provided as a compiled, unobfuscated plugin binary. Redistribution, re-hosting, or modification must adhere to the official project license terms.
