@@ -2,126 +2,190 @@
 
 ![VebaStickers Banner](https://cdn.modrinth.com/data/MXMlqbJb/images/61b41a361b2a6b569d8cb2871df1d8d888c21588.jpeg)
 
-# VebaStickers — HD Chat Stickers & Emoji Framework
+# VebaStickers — Universal HD Chat Stickers & Emoji Framework
 
-> **The #1 Server-Side HD Chat Sticker Engine for Minecraft (Java 1.16.5–26.x+ & Bedrock Edition via GeyserMC).**  
-> **Send full-scale Telegram/WhatsApp-style HD stickers directly in chat without requiring client mods, Forge, or Fabric.**
+[![Version](https://img.shields.io/badge/Release-v1.9.0-2563EB.svg?style=for-the-badge&logo=semantic-release&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![Supported MC](https://img.shields.io/badge/Minecraft-1.12.x_to_26.x+-16A34A.svg?style=for-the-badge&logo=coffeescript&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![Crossplay](https://img.shields.io/badge/Bedrock-GeyserMC%20%26%20Floodgate-EA580C.svg?style=for-the-badge&logo=android&logoColor=white)](https://geysermc.org)
+[![Client Mods](https://img.shields.io/badge/Client_Mods-0_Required_(Vanilla)-7C3AED.svg?style=for-the-badge&logo=box&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![Pack Size](https://img.shields.io/badge/Pack_Size-95%25_Optimized_(~2.5MB)-059669.svg?style=for-the-badge&logo=speedtest&logoColor=white)](https://modrinth.com/plugin/vebastickers)
 
-VebaStickers is an enterprise-grade Minecraft plugin engineered to deliver a modern, visual messaging experience across Java Edition and Bedrock Edition (via GeyserMC). Featuring an automated dual-pack compiler, 4-tier network delivery architecture, real-time 3x3 texture tiling, 3D floating holograms, multi-language client auto-detection, and comprehensive administrative controls, VebaStickers provides complete chat sticker functionality without relying on client modifications.
-
----
+> **The Industry-Standard Server-Side HD Chat Sticker Engine for Minecraft.**  
+> **Native Support across Java Edition (1.12.x – 26.x+ Game Drops) & Bedrock Edition via GeyserMC.**  
+> **Send full-scale Telegram/WhatsApp-style HD stickers directly in chat without requiring client mods, Forge, Fabric, or custom launchers.**
 
 </div>
 
-## Key Features
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-- **Zero Client Mods**: Works natively on Vanilla Minecraft Java Edition clients and Bedrock Edition (Mobile, Console, Windows 10/11) via GeyserMC & Floodgate.
-- **HD 3x3 Texture Tiling**: Bypasses default Minecraft chat font height limits by automatically slicing images into 3x3 grids for high-definition rendering.
-- **4-Tier Resilient Pack Delivery**: Embedded HTTP Server (ports 8085-8095), Nginx/Domain reverse proxy (`public-url`), native `server.properties` fallback, and external CDN routing.
-- **Cross-Platform Crossplay**: Native Bedrock Form UIs, `.mcpack` auto-generation, and Bedrock Emote button shortcut trigger.
-- **In-Game Administration**: Add new stickers live via URL (`/stickeradmin add <id> <url>`) or bulk-import ZIP packs (`/stickeradmin import <pack>`) without server restarts.
-- **Visual & Audio Enhancements**: Floating 3D holograms above players' heads (Java Edition) and customizable sound effects.
-- **Monetization & Permissions**: Seamless integration with LuckPerms, Vault economy, and PlayerPoints for VIP rank sticker packs and store monetization.
+VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineered to deliver a modern visual messaging experience across Java Edition and Bedrock Edition. Featuring a **zero-redundancy texture linking pipeline**, **automated universal multi-version compilation**, a **4-tier network delivery architecture**, **real-time 3x3 mega vitrin showcase with a 9-slot interactive hitbox**, **Shift-Click Burst Send**, **3D floating holograms**, and **multi-language client auto-detection**, VebaStickers delivers the ultimate chat graphics framework without sacrificing server TPS or network bandwidth.
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## Feature Matrix
+## Key Highlights & Architectural Overview
 
-When evaluating Minecraft chat enhancement plugins, VebaStickers offers the following technical capabilities:
+- **Zero Client Mods (100% Vanilla Compatible)**: Works natively on default Vanilla Minecraft Java Edition clients (1.12.x through 26.x+ Game Drops) and Bedrock Edition (iOS, Android, Xbox, PlayStation, Switch, Windows 10/11) via GeyserMC & Floodgate.
+- **Universal Multi-Era Compatibility (1.12.x – 26.x+)**: A single unified plugin and resource pack bridges legacy 1.12.x (via 2048x2048 HD Unicode sheets and OptiFine CIT), modern 1.14–1.20.4 (`CustomModelData`), 1.20.5+ (Item Components), and 1.21.4+ (`items/*.json` model definitions).
+- **Zero-Redundancy Texture Linking (95% Pack Size Reduction)**: Slices 50 MB pack bloat down to **~2.5 MB**. Each sticker is stored as a single 128x128 Retina master PNG referenced dynamically across GUI models, font glyphs, and CIT properties.
+- **3x3 Mega Showcase with 9-Slot Interactive Hitbox**: Players can switch between a 28-slot WhatsApp-style gallery and an enlarged 2.6x Mega Showcase. The surrounding 8 slots act as empty border-free canvases while mapping to the center sticker—clicking anywhere in the 3x3 grid sends the sticker instantly.
+- **Shift + Left Click: "Burst Send"**: Players can send multiple stickers in rapid succession without the menu closing, mimicking mobile messaging apps (Discord/WhatsApp/Telegram).
+- **4-Tier Resilient Pack Delivery**: Embedded micro HTTP Server (ports 8085-8095), SSL/TLS reverse proxy (`public-url` for Nginx/Caddy/Cloudflare), native `server.properties` fallback, and external CDN routing.
+- **Cross-Platform Crossplay (GeyserMC Native)**: Automatic `.mcpack` generation and distribution to Geyser's packs directory, touch-friendly Cumulus Form UIs, and Bedrock Emote button shortcut triggers.
+- **Dynamic In-Game Administration**: Add new stickers live via URL (`/stickeradmin add <id> <url>`) or bulk-import ZIP packs (`/stickeradmin import <pack>`) with instant hot-reloading and zero server downtime.
+- **3D Floating Holograms (Java Edition)**: Spawns temporary, billboarded 3D `TextDisplay` holograms above player heads with smooth bobbing animations, automatically hidden from Bedrock players to prevent entity scaling glitches.
+- **Economy & Monetization**: Full integration with LuckPerms (rank-based packs), Vault economy (per-sticker/category purchasing), and PlayerPoints.
 
-| Feature / Metric | VebaStickers | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
+
+## Technical Feature Matrix
+
+| Feature / Metric | VebaStickers v1.9.0 | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
 |---|---|---|---|
-| **Primary Focus** | Native HD Chat Stickers & Emojis | Full Asset Overhaul (Blocks/Items) | Low-Res 16x16 Text Glyphs |
-| **Client Requirement** | **Zero (Vanilla Compatible)** | Zero (Heavy Pack) | Zero |
-| **HD Image Rendering** | **3x3 Tile Grid (High-Res)** | Single Icon Glyphs | Single Small Icon Glyphs |
-| **In-Game Upload** | **Instant via URL / ZIP Import** | Complex File/Config Setup | Manual Resource Pack Rebuild |
-| **Bedrock Crossplay** | **Native Form UI + `.mcpack` Auto-Push** | Manual Bedrock Pack Mapping | Text-Only or Broken Glyphs |
-| **Port Blocked Fallback** | **4-Tier (HTTP -> Nginx -> `server.properties` -> CDN)** | Fails on Blocked Ports | Manual Web Server Required |
-| **Floating 3D Visuals** | **3D `TextDisplay` Holograms (Billboard)** | Standard Particles or None | None |
-| **Server Thread Overhead** | **Async Off-Thread Asset Compiling** | Heavy Main Thread Operations | Lightweight |
-| **Multi-Language (i18n)** | **16 Languages (Client Auto-Detect)** | Manual Translation | Single Language |
+| **Primary Architectural Focus** | **HD Chat Stickers, Emojis & GUI Vitrin** | Complete Server Asset Overhaul (Blocks/Items) | Low-Res 16x16 Text Glyphs |
+| **Client Requirement** | **Zero (100% Vanilla Cross-Platform)** | Zero (Heavy Custom Resource Pack) | Zero |
+| **Supported Minecraft Range** | **1.12.x – 26.x+ (Universal)** | 1.16.5+ or 1.20.4+ | Mostly Modern Only |
+| **Pack Size for 100 Stickers** | **~2.5 MB (Zero-Redundancy Link)** | 35 – 60 MB+ | ~5 MB |
+| **Interactive GUI Showcase** | **2.6x Mega Vitrin (9-Slot Hitbox)** | Standard 1x Slot Grid | Standard 1x Slot Grid |
+| **Burst Sending (Keep Open)** | **Shift + Left Click (Instant Combo)** | Not Supported | Not Supported |
+| **In-Game Upload via URL** | **Instant Live Compile (`/sadmin add`)** | Complex Config & Manual Pack Rebuild | Manual Texture Pack Editing |
+| **Bedrock Crossplay Integration** | **Form UI + `.mcpack` Auto-Push + Emote Hook** | Complex Bedrock Mapping Pipeline | Text-Only or Broken Glyphs |
+| **Restricted Port Delivery** | **4-Tier (HTTP -> Nginx -> Native -> CDN)** | Requires Open Port or External Web Host | Manual Setup |
+| **3D Floating Visuals** | **`TextDisplay` Billboard Hologram** | Particles / ArmorStand Hacks | None |
+| **Legacy 1.12.x HD Quality** | **2048x2048 HD Unicode + OptiFine CIT** | Unsupported / Dropped | Corrupted / 16x16 Pixelated |
+| **Multi-Language (i18n)** | **16 Languages (Auto-Detect Locale)** | Manual Localization | Single Language |
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## Architecture & Specifications
+## Architecture & Technical Pipeline Roadmap
 
-### 1. Dual-Engine Chat Interception
-VebaStickers features a runtime-adaptive chat processing engine that detects the host server environment on startup:
-- **Paper Engine (`AsyncChatEvent`)**: Operates asynchronously on Paper, Purpur, and Folia servers. Utilizes Adventure `Component` API and custom `ChatRenderer` implementations to prevent main-thread chat latency.
-- **Spigot Engine (`AsyncPlayerChatEvent`)**: Provides backward compatibility for CraftBukkit and Vanilla Spigot environments using thread-safe text replacement pipelines.
+<table width="100%" style="border-collapse: collapse; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; margin: 24px 0; overflow: hidden;">
+  <thead>
+    <tr style="background: rgba(37, 99, 235, 0.15);">
+      <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 1.05em; color: #60a5fa;">Pipeline Stage</th>
+      <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 1.05em; color: #60a5fa;">Technical Operation</th>
+      <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 1.05em; color: #60a5fa;">Target Runtime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top; font-weight: bold; color: #93c5fd;">
+        Stage 1: Asset Ingestion & Retina Processing
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        Ingests image via live URL (<code>/sadmin add</code>) or directory sync. Resamples to a crisp 128x128 Retina PNG with aspect ratio preservation and transparent alpha-channel borders.
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        <code>Async Background Thread</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top; font-weight: bold; color: #34d399;">
+        Stage 2: Zero-Redundancy Linker
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        Maintains a single physical PNG on disk. Simultaneously links model JSONs, 2.6x Mega vitrin models, modern items definitions, and OptiFine CIT rules to this master texture without file duplication.
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        <code>Unified Texture Storage</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top; font-weight: bold; color: #c084fc;">
+        Stage 3: Multi-Era Adaptive Compilation
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        Generates 1.21.4+ <code>range_dispatch</code> items definitions, 1.16–1.20 custom model data predicates, 2048x2048 <code>unicode_page_e1.png</code> HD sheets for 1.12.x, and in-memory virtual <code>textures/items/</code> streaming.
+      </td>
+      <td style="padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); vertical-align: top;">
+        <code>Universal Resource Pack</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 14px 16px; vertical-align: top; font-weight: bold; color: #fb923c;">
+        Stage 4: Automated Distribution & Crossplay
+      </td>
+      <td style="padding: 14px 16px; vertical-align: top;">
+        Serves pack through 4-tier network failover (Embedded HTTP ports 8085-8095, Nginx SSL, native server.properties, external CDN). Pushes compiled <code>.mcpack</code> directly into GeyserMC packs directory.
+      </td>
+      <td style="padding: 14px 16px; vertical-align: top;">
+        <code>Java & Bedrock Clients</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-### 2. 3x3 Texture Tiling Engine
-- **3x3 High-Resolution Tile Slicing**: To bypass Minecraft chat font height limits, large HD stickers are automatically sliced into a 3x3 grid of 9 individual texture tiles (`_tile_0.png` through `_tile_8.png`) and model definitions. Chat rendering concatenates these tiles seamlessly for crisp HD visuals.
-- **Dual-Model Compilation**:
-  - *Modern Format (MC 1.21.4 - 26.x+)*: Compiles `assets/minecraft/items/paper.json` model definitions.
-  - *Legacy Format (MC 1.16.5 - 1.20.6)*: Compiles `assets/minecraft/models/item/paper.json` custom model predicate overrides.
-- **Universal `pack_format: [6, 99]`**: Prevents "Incompatible Resource Pack" client warnings across versions 1.16.5 through 26.x+.
-- **Async & Incremental Builds**: Asset generation and ZIP archiving run asynchronously off the main server thread. Incremental compilation re-builds only updated textures to minimize CPU utilization.
-- **SHA-1 Automated Hashing**: Computes SHA-1 hash digests on startup to force client-side asset re-download only when content changes.
+### 1. Zero-Redundancy Texture Linking & Universal Pack
+- **Single Source of Truth**: All stickers are compiled into standard 128x128 Retina PNGs at `assets/minecraft/textures/item/stickers/<id>.png`.
+- **Deduplicated Linking**:
+  - `models/item/stickers/<id>.json` references `"minecraft:item/stickers/<id>"`
+  - `models/item/stickers/<id>_mega.json` (2.6x scale) references `"minecraft:item/stickers/<id>"`
+  - `font/default.json` references `"minecraft:item/stickers/<id>.png"`
+  - `items/paper.json` (1.21.4+ `range_dispatch`) references `"minecraft:item/stickers/<id>"`
+  - `mcpatcher/cit/stickers/<id>.properties` (OptiFine CIT) references `"minecraft:item/stickers/<id>"`
+- **Virtual Zip Entry Streaming**: To support 1.12.x clients searching for the pre-flattening plural `textures/items/` path, `ZipOutputStream` streams a virtual entry on the fly—**costing 0 bytes of extra disk space**.
+- **Universal Metadata (`pack.mcmeta`)**:
+  ```json
+  {
+    "pack": {
+      "pack_format": 3,
+      "supported_formats": {
+        "min_inclusive": 3,
+        "max_inclusive": 99
+      },
+      "description": "§d§lVebaStickers §7- Universal HD Pack (1.12.x - 26.x+)"
+    }
+  }
+  ```
+  - 1.12.x clients see native `pack_format: 3` and load without warnings.
+  - 1.20.2 through 26.x+ Game Drops clients recognize `supported_formats` and load seamlessly with zero red incompatibility screens.
 
-### 3. Resource Pack Delivery
+### 2. Dual-Font Bridge for 1.12.x Clients
+Minecraft 1.12.x lacks JSON bitmap font providers (`font/default.json`). VebaStickers overcomes this with an algorithmic **HD Unicode Sheet Generator**:
+- Compiles active stickers into a crystal-clear 2048x2048 ARGB sheet (`unicode_page_e1.png`, `unicode_page_f0.png`).
+- Maps each character (e.g. `\uE101`) to a 128x128 cell in a 16x16 grid.
+- **Zero-Message Conversion**: Both modern and 1.12 clients receive the same unicode in chat, rendering identical HD graphics natively.
 
-VebaStickers incorporates a 4-tier fallback distribution pipeline to guarantee resource pack delivery under any hosting environment (including shared hosting with restricted ports):
+### 3. Dual-Engine Chat Interception
+- **Paper / Purpur / Folia Engine (`AsyncChatEvent`)**: Asynchronous, non-blocking chat pipeline using Adventure `Component` and custom `ChatRenderer` implementations. Zero main-thread lag even under high player traffic.
+- **Spigot Engine (`AsyncPlayerChatEvent`)**: High-compatibility thread-safe fallback pipeline for vanilla Spigot and CraftBukkit servers.
 
-| Priority Tier | Delivery Mechanism | Configuration Key | Operational Environment & Fallback Condition |
+### 4. 4-Tier Resilient Pack Delivery Pipeline
+
+| Priority Tier | Delivery Mechanism | Configuration Key | Environment & Fallback Condition |
 |---|---|---|---|
 | **Tier 1** | **Embedded Micro HTTP Server** | `http-server.enabled: true` | Direct HTTP delivery with port auto-scan & failover (ports 8085-8095). |
 | **Tier 2** | **Nginx / Reverse Proxy / SSL** | `http-server.public-url` | Custom domain delivery via SSL/TLS reverse proxy (`https://pack.domain.com`). |
-| **Tier 3** | **server.properties Native Handshake** | `pack-delivery.strategy: AUTO` | Automatic fallback writing native `resource-pack=` settings on restricted hostings. |
-| **Tier 4** | **External CDN Fallback** | `pack-delivery.fallback-url` | Secondary download link for external CDN or web hosting (Cloudflare R2, GitHub). |
+| **Tier 3** | **server.properties Native Handshake** | `pack-delivery.strategy: AUTO` | Writes native `resource-pack=` and SHA-1 settings for restricted shared hosts. |
+| **Tier 4** | **External CDN Fallback** | `pack-delivery.fallback-url` | Secondary download link for Cloudflare R2, AWS S3, or GitHub Releases. |
 
-#### Embedded HTTP Server
-- **Zero Dependencies**: Lightweight internal HTTP server (`com.sun.net.httpserver`) requiring no external web software.
-- **Port Auto-Scanning**: Automatically scans and binds to the first available port between 8085 and 8095.
-- **Reverse Proxy & Domain Support**: Full Nginx, Caddy, and Apache integration via `http-server.public-url` (e.g. `https://pack.myserver.com`).
-- **HTTP Range Requests (HTTP 206)**: Supports partial content downloads for network resume capability.
-- **ETag & Cache Optimization**: Returns HTTP 304 Not Modified when client SHA-1 hashes match server state.
-- **DDoS & Rate Protection**: Configurable per-IP rate limiting (default 30 requests/minute).
-- **Directory Traversal Guarding**: Sanitizes file paths to prevent illegal file access.
-- **REST Monitoring Endpoints**: Serves `/health` and `/status` JSON endpoints detailing active memory, total downloads, served bandwidth, SHA-1, and port status.
+- **HTTP Range Requests (HTTP 206)**: Allows resumption of interrupted downloads.
+- **ETag & 304 Not Modified Caching**: Eliminates redundant network transfers when pack content hasn't changed.
+- **ViaVersion Protocol Detection**: Dynamically appends client protocol diagnostics (`?proto=340&target=legacy` or `?proto=769&target=modern`).
 
-#### Native Handshake Fallback
-If dedicated ports are blocked by hosting providers, VebaStickers atomically updates `server.properties` (`resource-pack=` and `resource-pack-sha1=`), allowing Minecraft's native connection handshake to deliver the pack automatically.
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
----
+## In-Game Player Experience
 
-## Player Features
-
-### Chat Rendering
+### Chat Graphics & Inline Codes
 
 <table align="center">
   <tr>
     <th style="text-align:center">Java Edition Chat</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/10b225cc6b6986abea4365b538329d29225445e2_0.webp" width="600" alt="Java chat ss"/></td>
-  </tr>
-</table>
-
-- **Standalone HD Stickers**: Sends full-scale high-resolution images in chat using PUA font glyphs.
-- **Inline Sticker Codes**: Insert `:sticker_code:` anywhere within standard text messages to embed inline stickers mid-sentence.
-- **Automatic Emoticon Replacements**: Automatically converts traditional emoticons (`:)`, `<3`, `:fire:`, `;)`) into designated sticker codes.
-- **Rich Hover Tooltips**: Displays interactive hover tooltips containing sticker title, category name, pack access requirements, and author details.
-- **Click Actions**: Configurable click handling (`SUGGEST_COMMAND`, `RUN_COMMAND`, `NONE`) when clicking stickers in chat.
-- **Sticker Mute/Toggle (`/sticker toggle`)**: Players can individually toggle sticker rendering on or off for their own client view.
-
-### Bedrock & Crossplay
-
-<table align="center">
-  <tr>
     <th style="text-align:center">Bedrock Edition Chat</th>
   </tr>
   <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/5cd95a19e936a7bb62b6c16e6ad33924a2d93b7c.jpeg" width="600" alt="Bedrock chat ss"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/10b225cc6b6986abea4365b538329d29225445e2_0.webp" width="450" alt="Java chat ss"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/5cd95a19e936a7bb62b6c16e6ad33924a2d93b7c.jpeg" width="450" alt="Bedrock chat ss"/></td>
   </tr>
 </table>
 
-- **GeyserMC & Floodgate Native Hook**: Bridges Java Edition font glyphs to Bedrock Edition clients seamlessly.
-- **Automated `.mcpack` Compilation**: Automatically compiles a Bedrock-compatible resource pack and pushes it to Geyser's `packs/` directory on startup.
-- **Touch-Friendly Bedrock Form UI**: Bedrock players receive native Cumulus Form menus instead of chest inventory containers.
-- **Geyser Emote Button Trigger**: Tapping the native Emote button at the top of the mobile screen opens the sticker selection form instantly.
+- **Full-Scale HD Stickers**: Send standalone stickers or insert `:sticker_code:` inline anywhere within standard sentences.
+- **Smart Emoticon Conversion**: Automatically converts standard smileys (`:)`, `<3`, `:fire:`, `;)`) into vibrant custom stickers.
+- **Rich Hover Tooltips**: Displays interactive hover cards showing sticker title, category, required permissions, and author.
+- **Click Actions**: Configure stickers to suggest or run commands when clicked in chat.
+- **Sticker Mute/Toggle (`/sticker toggle`)**: Players can individually toggle sticker visibility without affecting others.
 
-### GUI Catalogs
+### GUI Catalogs & Burst Send
 
 <table align="center">
   <tr>
@@ -142,62 +206,49 @@ If dedicated ports are blocked by hosting providers, VebaStickers atomically upd
   </tr>
 </table>
 
-- **Interactive Chest GUI (`/sticker`)**: Polished 54-slot inventory GUI with category pagination, item sorting, and unlock status icons.
-- **Interactive Book Catalog (`/sbook`)**: Displays sticker collections in an interactive book GUI.
-- **Double-Tap 'F' Offhand Shortcut**: Double-tapping the item swap key ('F') with empty hands opens the sticker catalog GUI instantly on Java Edition.
-- **Bedrock Emote Button Trigger**: Native Bedrock Emote button opens the sticker form catalog directly.
-- **Real-Time Search Engine (`/sticker search <query>`)**: Instant search bar filtering stickers by keyword, ID, or category.
-- **Personal Favorites Bookmark (`/sticker favorites`)**: Bookmark system allowing players to save favorite stickers for single-click sending.
-- **Locked Sticker Previews**: Displays greyed-out previews for locked stickers, indicating required permissions or store links.
+- **WhatsApp-Style 28-Slot Gallery (`/sticker`)**: Compact, paginated chest inventory with category tabs, search button, and sound toggles.
+- **3x3 Mega Vitrin Showcase**: Switch to an enlarged 2.6x display model. All 9 slots in the 3x3 block form a continuous clickable hitbox.
+- **Shift + Left Click ("Burst Send")**: Send stickers repeatedly without closing the menu.
+- **Normal Left Click**: Sends sticker to chat and closes menu.
+- **Right Click**: Adds or removes sticker from personal favorites (`/sticker favorites`).
+- **Interactive Book Catalog (`/sbook`)**: Browse stickers in an interactive book interface.
+- **Double-Tap 'F' Shortcut**: Double-tapping the offhand swap key ('F') with empty hands opens the sticker catalog instantly.
+- **Real-Time Search (`/sticker search <query>`)**: Instant search filtering by name, ID, or chat code.
 
-### Multi-Language Support
-Built-in support for 16 languages with client locale auto-detection (`per-player-language: true`):
-
-| Language | Code | Language | Code |
-|---|---|---|---|
-| English | `en` | Turkish | `tr` |
-| German | `de` | Spanish | `es` |
-| French | `fr` | Portuguese | `pt` |
-| Russian | `ru` | Chinese | `zh` |
-| Japanese | `ja` | Korean | `ko` |
-| Italian | `it` | Dutch | `nl` |
-| Polish | `pl` | Arabic | `ar` |
-| Hindi | `hi` | Ukrainian | `uk` |
+### 3D Floating Holograms (Java Edition)
 
 <table align="center">
   <tr>
-    <th style="text-align:center">languages</th>
+    <th style="text-align:center">3D Billboard Hologram</th>
   </tr>
   <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/1de8f576ac95c9aff6a00fca65795bc83e282ff6.png" width="600" alt="languages"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/913636a8fa6af0b70ed7965837fc83188da0f084_0.webp" width="550" alt="Sticker Hologram"/></td>
   </tr>
 </table>
 
-### 3D Holograms *(Java Edition)*
-
-<table align="center">
-  <tr>
-    <th style="text-align:center">Sticker Hologram</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/913636a8fa6af0b70ed7965837fc83188da0f084_0.webp" width="600" alt="Sticker Hologram"/></td>
-  </tr>
-</table>
-
-- Spawns a floating 3D `TextDisplay` hologram entity above the player's head upon sending a sticker.
+- Spawns a floating 3D `TextDisplay` entity above the player's head upon sending a sticker.
 - **Billboard Orientation**: Always faces nearby viewers automatically.
-- **Smooth Bobbing Animation**: Gentle vertical floating motion during display.
-- **Sender Hiding (`hide-from-sender: true`)**: Automatically hidden from the sender's screen to prevent visual obstruction.
-- Configurable scale (`scale: 2.2`), duration (`duration-ticks: 70`), and vertical height offset (`height-offset: 2.15`).
+- **Smooth Bobbing Animation**: Gentle vertical motion without jerky teleportation.
+- **Sender Hiding (`hide-from-sender: true`)**: Keeps the sender's own vision clear.
+- **Ghost Entity Prevention**: Clean entity removal on chunk unload, player disconnect, or server reload.
 
-### Economy & Audio
-- **Vault Economy Support**: Charge players in-game currency per sticker use or per category unlock.
-- **PlayerPoints Economy Support**: Full support for PlayerPoints secondary economy currency.
-- **Audio Feedback System**: Configurable Minecraft sound effects (`block.note_block.chime`, `ui.button.click`, `entity.player.levelup`) upon sticker sending, GUI navigation, or purchasing.
+### Multi-Language Localization (16 Languages)
 
----
+<table align="center">
+  <tr>
+    <th style="text-align:center">Supported Languages Catalog</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/1de8f576ac95c9aff6a00fca65795bc83e282ff6.png" width="550" alt="languages"/></td>
+  </tr>
+</table>
 
-## Admin Tools
+Built-in support for 16 languages with automatic client locale detection (`per-player-language: true`):
+`en` (English), `tr` (Turkish), `de` (German), `es` (Spanish), `fr` (French), `pt` (Portuguese), `ru` (Russian), `zh` (Chinese), `ja` (Japanese), `ko` (Korean), `it` (Italian), `nl` (Dutch), `pl` (Polish), `ar` (Arabic), `hi` (Hindi), `uk` (Ukrainian).
+
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
+
+## Administrative Operations & Controls
 
 <table align="center">
   <tr>
@@ -210,124 +261,97 @@ Built-in support for 16 languages with client locale auto-detection (`per-player
   </tr>
 </table>
 
-### In-Game Control Panel (`/stickeradmin`)
-- **In-Game Sticker Addition (`/stickeradmin add <id> <url>`)**: Downloads PNG images via URL, automatically slices into 3x3 tiles, generates item models, and recompiles the resource pack live without server restarts.
-- **In-Game Sticker Removal (`/stickeradmin remove <id>`)**: Deletes sticker assets and updates pack definitions instantly.
-- **Bulk ZIP Import (`/stickeradmin import <pack>`)**: Bulk-imports complete sticker packs from a ZIP archive.
-- **Grant Sticker Packs (`/stickeradmin give <player> <pack>`)**: Grants specific sticker pack permissions to players.
-- **Player Ban Management (`/stickeradmin ban <player> [reason]`)**: Bans abusive players from using stickers with reason logging and unban capabilities.
-- **Bedrock Pack Sync (`/stickeradmin exportbedrock`)**: Manually triggers `.mcpack` regeneration and Geyser distribution.
-- **Force Resource Pack Resend (`/stickeradmin sendpack`)**: Forces pack delivery prompts to individual players or all online players.
-- **System Status Diagnostics (`/stickeradmin status`)**: Reports active delivery method, HTTP port status, total downloads, served bandwidth, and player load counts.
-- **System Integrity Check (`/stickeradmin verify`)**: Executes a 6-point automated integrity audit covering textures, tile models, ZIP archives, SHA-1 checksums, and HTTP web server binding.
-- **Hot Configuration Reload (`/stickeradmin reload`)**: Reloads all configuration files, sticker definitions, and translation files dynamically.
+- **Live URL Sticker Ingestion (`/stickeradmin add <id> <url>`)**: Downloads PNG, converts to 128x128 Retina, updates unicode allocations, compiles models, and regenerates the pack live in the background.
+- **Instant Sticker Removal (`/stickeradmin remove <id>`)**: Cleans up assets, models, and font bindings on the fly.
+- **Bulk ZIP Import (`/stickeradmin import <pack>`)**: Bulk-imports complete sticker folders into categories without manual file edits.
+- **Bedrock Pack Sync (`/stickeradmin exportbedrock`)**: Pushes updated `.mcpack` archives directly to Geyser.
+- **Live System Status (`/stickeradmin status`)**: Reports active server version, chat engine, TextDisplay status, HTTP port, bandwidth, and download metrics.
+- **6-Point Integrity Audit (`/stickeradmin verify`)**: Validates textures, models, font providers, ZIP integrity, and SHA-1 checksums automatically.
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## Compatibility
-
-| Software / Dependency | Integration Mode | Features & Purpose |
-|---|---|---|
-| **Paper / Purpur / Folia** | Native Engine | High-performance `AsyncChatEvent` + `ChatRenderer` components |
-| **Spigot / CraftBukkit** | Native Engine | Legacy `AsyncPlayerChatEvent` pipeline compatibility |
-| **GeyserMC & Floodgate** | Native Integration | Bedrock Form UI, `.mcpack` auto-push, Emote button shortcut |
-| **LuckPerms** | Soft Dependency | Rank-based permission node control (`sticker.pack.<name>`) |
-| **Vault** | Soft Dependency | In-game currency transactions per sticker/pack |
-| **PlayerPoints** | Soft Dependency | Point economy integration for sticker purchases |
-| **PlaceholderAPI** | Soft Dependency | Exposes sticker stats and user data placeholders |
-| **ViaVersion / ViaBackwards**| Compatible | Multi-version client protocol compatibility |
-| **Modrinth API & bStats** | Native Integration | Automated update notifications & telemetry metrics |
-
-### Supported Versions
-
-VebaStickers is engineered as a **single, unified JAR** supporting both legacy `1.16.5` releases and Minecraft's new year-based calendar releases (**25.x, 26.x+**).
-
-| Component | Supported Versions | Status & Details |
-|---|---|---|
-| **Minecraft Server** | **1.16.5 – 26.x+** | Native support for Paper, Purpur, Folia, and Spigot. |
-| **Java Clients** | **1.16.x – 26.x+** | Full native support (and via ViaVersion / ViaBackwards). |
-| **Bedrock Clients** | **All Recent Versions** | Fully supported via **GeyserMC & Floodgate**. |
-
----
-
-## Commands & Permissions
+## Commands & Permissions Reference
 
 ### Player Commands
 
-| Command | Aliases | Description | Permission |
-|---|---|---|---|
-| `/sticker` | `/stickers`, `/emote`, `/cikartma` | Opens main sticker GUI catalog | `sticker.gui` |
-| `/sticker send <id>` | — | Sends a specific sticker by ID | `sticker.use` |
-| `/sticker search <query>` | — | Searches available stickers by keyword | `sticker.gui` |
-| `/sticker favorites` | — | Opens personal favorited stickers | `sticker.gui` |
-| `/sticker lang [code\|list]` | — | Changes interface language | `sticker.gui` |
-| `/sticker toggle` | — | Toggles sticker rendering visibility | `sticker.gui` |
-| `/sticker pack` | — | Requests resource pack download prompt | `sticker.gui` |
-| `/sticker help` | — | Displays command help menu | `sticker.gui` |
-| `/sbook` | `/stickerbook`, `/skitap` | Opens sticker collection as a Book GUI | `sticker.gui` |
+| Command | Aliases | Description | Permission | Default |
+|---|---|---|---|---|
+| `/sticker` | `/s`, `/stickers`, `/emote`, `/cikartma` | Opens main interactive sticker GUI | `sticker.gui` | Everyone |
+| `/sticker send <id>` | — | Sends a specific sticker by identifier | `sticker.use` | Everyone |
+| `/sticker search <query>` | — | Searches stickers by keyword | `sticker.gui` | Everyone |
+| `/sticker favorites` | — | Opens personal favorited stickers | `sticker.gui` | Everyone |
+| `/sticker lang [code]` | — | Opens language selector or sets language | `sticker.gui` | Everyone |
+| `/sticker toggle` | — | Toggles sticker rendering visibility | `sticker.gui` | Everyone |
+| `/sticker pack` | — | Requests resource pack download prompt | `sticker.gui` | Everyone |
+| `/sticker help` | — | Displays command help menu | `sticker.gui` | Everyone |
+| `/sbook` | `/stickerbook`, `/skitap` | Opens sticker collection as a Book GUI | `sticker.gui` | Everyone |
 
 ### Administrative Commands
 
-| Command | Description | Permission |
-|---|---|---|
-| `/stickeradmin gui` | Opens administrative control dashboard | `sticker.admin` |
-| `/stickeradmin add <id> <url>` | Adds new sticker from PNG URL and recompiles pack | `sticker.admin` |
-| `/stickeradmin remove <id>` | Deletes sticker and updates pack definitions | `sticker.admin` |
-| `/stickeradmin import <zip>` | Imports ZIP archive containing sticker images | `sticker.admin` |
-| `/stickeradmin give <player> <pack>` | Grants sticker pack access to a player | `sticker.admin` |
-| `/stickeradmin ban <player> [reason]` | Restricts a player from sending stickers | `sticker.admin` |
-| `/stickeradmin unban <player>` | Removes sticker ban from a player | `sticker.admin` |
-| `/stickeradmin sync` | Forces full pack re-generation and SHA-1 update | `sticker.admin` |
-| `/stickeradmin exportbedrock` | Compiles and pushes Bedrock `.mcpack` to Geyser | `sticker.admin` |
-| `/stickeradmin status` | Displays web server and delivery diagnostics | `sticker.admin` |
-| `/stickeradmin verify` | Runs full system integrity verification check | `sticker.admin` |
-| `/stickeradmin reload` | Reloads plugin configurations and languages | `sticker.admin` |
+| Command | Description | Permission | Default |
+|---|---|---|---|
+| `/stickeradmin gui` | Opens administrative dashboard | `sticker.admin` | OP |
+| `/stickeradmin add <id> <url>` | Adds sticker from image URL and recompiles | `sticker.admin` | OP |
+| `/stickeradmin remove <id>` | Deletes sticker and updates pack definitions | `sticker.admin` | OP |
+| `/stickeradmin import <zip>` | Imports bulk sticker ZIP archive | `sticker.admin` | OP |
+| `/stickeradmin give <player> <pack>` | Grants sticker pack access to player | `sticker.admin` | OP |
+| `/stickeradmin ban <player> [reason]` | Suspends a player from sending stickers | `sticker.admin` | OP |
+| `/stickeradmin unban <player>` | Restores sticker privileges for a player | `sticker.admin` | OP |
+| `/stickeradmin sync` | Forces full pack re-generation and SHA-1 update | `sticker.admin` | OP |
+| `/stickeradmin exportbedrock` | Compiles and pushes Bedrock `.mcpack` to Geyser | `sticker.admin` | OP |
+| `/stickeradmin status` | Displays web server and delivery diagnostics | `sticker.admin` | OP |
+| `/stickeradmin verify` | Runs automated 6-point system verification | `sticker.admin` | OP |
+| `/stickeradmin reload` | Reloads configurations, stickers, and languages | `sticker.admin` | OP |
 
 ### Permission Hierarchy
 
-| Permission Node | Default | Description |
+| Permission Node | Description | Default |
 |---|---|---|
-| `sticker.gui` | Everyone | Access to sticker GUI catalogs and user commands |
-| `sticker.use` | Everyone | Ability to send basic stickers in chat |
-| `sticker.pack.<category>` | OP | Access to a specific sticker category/pack |
-| `sticker.category.*` | OP | Access to all sticker categories |
-| `sticker.bypass.cooldown` | OP | Bypasses sticker chat cooldown limits |
-| `sticker.admin` | OP | Full access to administrative commands and dashboard |
+| `sticker.gui` | Access to sticker GUI catalogs and basic commands | Everyone (`true`) |
+| `sticker.use` | Permission to send basic stickers in chat | Everyone (`true`) |
+| `sticker.pack.<category>` | Grants access to a specific sticker category | OP |
+| `sticker.category.*` | Grants access to all sticker categories | OP |
+| `sticker.bypass.cooldown` | Bypasses chat sticker cooldown restrictions | OP |
+| `sticker.admin` | Full access to all administrative tools and GUI | OP |
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## FAQ
+## Frequently Asked Questions (FAQ)
 
-**1. Does VebaStickers require client-side mods?**  
-No. VebaStickers operates entirely server-side. Resource packs are delivered to Java and Bedrock clients automatically during connection handshakes.
+**1. Does VebaStickers require client-side mods or custom launchers?**  
+No. VebaStickers runs 100% server-side. Vanilla Java Edition and Bedrock Edition clients receive the lightweight resource pack automatically upon joining.
 
-**2. How does VebaStickers handle environments where port 8085 is blocked?**  
-VebaStickers includes a 4-tier delivery manager. If port 8085 is unavailable, it scans ports up to 8095. If all HTTP ports are restricted by your hosting provider, it can automatically update `server.properties` (`resource-pack=`), route delivery through a custom reverse proxy domain (`http-server.public-url`), or use an external CDN (`pack-delivery.fallback-url`).
+**2. How does VebaStickers support both 1.12.2 and modern 1.21.4 / 26.x+ Game Drops in one pack?**  
+Through our Dual-Font Bridge and Universal metadata architecture:
+- Modern clients (1.13+) parse `font/default.json` and model definitions.
+- Legacy 1.12.x clients read the auto-generated 2048x2048 `unicode_page_e1.png` font sheet and OptiFine CIT definitions.
+- The `pack.mcmeta` specifies `pack_format: 3` with `supported_formats: [3, 99]`, satisfying both old and new client parsers with zero warnings.
 
-**3. How is Nginx or Caddy configured with VebaStickers?**  
-Set `http-server.public-url: "https://pack.yourdomain.com"` in `config.yml` and proxy port 8085 in your Nginx configuration. VebaStickers will generate all resource pack URLs pointing to your SSL-secured domain.
+**3. What happens if port 8085 is blocked by my server host?**  
+VebaStickers' 4-tier network delivery automatically scans ports 8085-8095. If all HTTP ports are restricted, it seamlessly falls back to updating `server.properties` native pack delivery or routes through an SSL reverse proxy (`http-server.public-url`) or external CDN.
 
-**4. Are Bedrock Edition players supported?**  
-Yes. Through GeyserMC and Floodgate, VebaStickers generates a native `.mcpack`, delivers Bedrock Form GUIs, and maps Bedrock chat inputs automatically.
+**4. How does the 3x3 Mega Vitrin showcase work?**  
+Instead of cutting stickers into 9 separate physical files, VebaStickers renders a single 2.6x scaled mega model in the center slot while clearing adjacent slots to `AIR`. All 9 slots register in the click listener, providing a massive, seamless hitbox.
 
-**5. How does the 3D Floating Hologram work?**  
-On Java Edition (MC 1.19.4+), sending a sticker spawns a temporary `TextDisplay` entity above the player's head. Bedrock clients receive the chat sticker normally without rendering the entity transformation, maintaining cross-platform visual consistency.
+**5. How does Shift + Left Click "Burst Send" work?**  
+Normal Left-Click sends the sticker and closes the inventory. Shift + Left-Click sends the sticker to chat with full sound effects and cooldown validation while keeping the menu open, allowing rapid sticker combos.
 
-**6. Does this affect server performance?**  
-No. Image processing and ZIP compilation run asynchronously off the main server thread. Chat processing uses lightweight string scanning and cached Adventure component rendering.
+**6. Are Bedrock Edition players supported?**  
+Yes. With GeyserMC and Floodgate, VebaStickers generates a native `.mcpack`, delivers touch-friendly Bedrock Form GUIs, and maps the Bedrock Emote button directly to the sticker menu.
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## License
+## License & Telemetry
 
 Copyright (c) Veba. All Rights Reserved.  
-Provided as a compiled, unobfuscated plugin binary. Redistribution, re-hosting, or modification must adhere to the official project license terms.
+Provided as an optimized, production-ready plugin binary. Telemetry metrics are gathered anonymously via [bStats](https://bstats.org) to monitor version adoption and delivery resilience.
 
----
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/Source-GitHub-181717?style=flat-square&logo=github)](https://github.com/Veba-n/VebaStickers)
-[![Modrinth](https://img.shields.io/badge/Modrinth-VebaStickers-00AF5C?style=flat-square&logo=modrinth)](https://modrinth.com/plugin/vebastickers)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Veba-n/VebaStickers)
+[![Modrinth](https://img.shields.io/badge/Modrinth-VebaStickers-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![PaperMC](https://img.shields.io/badge/Platform-Paper%20%7C%20Purpur%20%7C%20Folia-1F2328?style=for-the-badge&logo=apache&logoColor=white)](https://papermc.io)
 
 </div>
