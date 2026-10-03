@@ -4,7 +4,7 @@
 
 # VebaStickers — Universal HD Chat Stickers & Emoji Framework
 
-[![Version](https://img.shields.io/badge/Release-v1.9.0-2563EB.svg?style=for-the-badge&logo=semantic-release&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![Version](https://img.shields.io/badge/Release-v1.9.1-2563EB.svg?style=for-the-badge&logo=semantic-release&logoColor=white)](https://modrinth.com/plugin/vebastickers)
 [![Supported MC](https://img.shields.io/badge/Minecraft-1.12.x_to_26.x+-16A34A.svg?style=for-the-badge&logo=coffeescript&logoColor=white)](https://modrinth.com/plugin/vebastickers)
 [![Crossplay](https://img.shields.io/badge/Bedrock-GeyserMC%20%26%20Floodgate-EA580C.svg?style=for-the-badge&logo=android&logoColor=white)](https://geysermc.org)
 [![Client Mods](https://img.shields.io/badge/Client_Mods-0_Required_(Vanilla)-7C3AED.svg?style=for-the-badge&logo=box&logoColor=white)](https://modrinth.com/plugin/vebastickers)
@@ -39,7 +39,7 @@ VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineere
 
 ## Technical Feature Matrix
 
-| Feature / Metric | VebaStickers v1.9.0 | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
+| Feature / Metric | VebaStickers v1.9.1 | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
 |---|---|---|---|
 | **Primary Architectural Focus** | **HD Chat Stickers, Emojis & GUI Vitrin** | Complete Server Asset Overhaul (Blocks/Items) | Low-Res 16x16 Text Glyphs |
 | **Client Requirement** | **Zero (100% Vanilla Cross-Platform)** | Zero (Heavy Custom Resource Pack) | Zero |
