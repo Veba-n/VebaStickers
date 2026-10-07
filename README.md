@@ -4,7 +4,7 @@
 
 # VebaStickers — Universal HD Chat Stickers & Emoji Framework
 
-[![Version](https://img.shields.io/badge/Release-v1.9.1-2563EB.svg?style=for-the-badge&logo=semantic-release&logoColor=white)](https://modrinth.com/plugin/vebastickers)
+[![Version](https://img.shields.io/badge/Release-v1.9.2-2563EB.svg?style=for-the-badge&logo=semantic-release&logoColor=white)](https://modrinth.com/plugin/vebastickers)
 [![Supported MC](https://img.shields.io/badge/Minecraft-1.12.x_to_26.x+-16A34A.svg?style=for-the-badge&logo=coffeescript&logoColor=white)](https://modrinth.com/plugin/vebastickers)
 [![Crossplay](https://img.shields.io/badge/Bedrock-GeyserMC%20%26%20Floodgate-EA580C.svg?style=for-the-badge&logo=android&logoColor=white)](https://geysermc.org)
 [![Client Mods](https://img.shields.io/badge/Client_Mods-0_Required_(Vanilla)-7C3AED.svg?style=for-the-badge&logo=box&logoColor=white)](https://modrinth.com/plugin/vebastickers)
@@ -18,16 +18,21 @@
 
 <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineered to deliver a modern visual messaging experience across Java Edition and Bedrock Edition. Featuring a **zero-redundancy texture linking pipeline**, **automated universal multi-version compilation**, a **4-tier network delivery architecture**, **real-time 3x3 mega vitrin showcase with a 9-slot interactive hitbox**, **Shift-Click Burst Send**, **3D floating holograms**, and **multi-language client auto-detection**, VebaStickers delivers the ultimate chat graphics framework without sacrificing server TPS or network bandwidth.
+**VebaStickers** is an enterprise-grade, high-performance Minecraft plugin engineered to deliver a modern visual messaging experience across Java Edition and Bedrock Edition. Featuring a **zero-redundancy texture linking pipeline**, **pure vanilla container isolation**, an **interactive player onboarding wizard (`PackPromptMenu`)**, **dynamic cache purging with instant preference reset**, a **4-tier network delivery architecture**, **real-time 3x3 mega vitrin showcase with a 9-slot interactive hitbox**, **Shift-Click Burst Send**, **3D floating holograms**, and **16-language auto-detection**, VebaStickers delivers the ultimate chat graphics framework without sacrificing server TPS, player freedom, or network bandwidth.
 
 <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## Key Highlights & Architectural Overview
+## Key Highlights & Architectural Overview (v1.9.2)
 
+- **Pure Vanilla Container Isolation (100% Unmodified Chests)**: Unlike other plugins that brutally overwrite the global `generic_54.png` container texture and alter every double chest on your server, VebaStickers isolates its custom GUI backgrounds completely. Normal survival and creative chests, Ender chests, and `/vsa` admin views retain 100% authentic vanilla textures. The custom Mega Vitrin backdrop is rendered strictly for the sticker showcase using negative-space font glyph overlays (`\uF808\uEE01\uF8F0`) and OptiGUI hooks.
+- **Interactive Onboarding Setup Wizard (`PackPromptMenu`)**: Empowers every player with personal freedom. Upon initial login (or anytime via `/sticker pack`), players are greeted with an aesthetic 27-slot setup wizard where they can choose between **Full HD + Modern GUI**, **Stickers Only (Classic Vanilla Chests)**, or **Skip (Text Mode)**, complete with a one-click preference remember toggle.
+- **Dynamic Cache Purge & Choice Reset (`/vebasticker remove-cache` / `/vsa remove-cache`)**: Server administrators and players can instantly purge the server pack cache, regenerate fresh SHA-1 hashes, unbind old client packs, wipe player onboarding decisions, and immediately re-open the setup wizard on-the-spot for seamless preference reselection.
+- **Overhauled Administrative Dashboard (`/vsa`)**: Symmetrical 6-row layouts with zero missing slots, slate gray glass framing, persistent pagination controls with disabled-state indicators (`◀ First Page`, `Last Page ▶`), real-time system health telemetry, and web server diagnostics.
+- **Clean Minimalist Titles & Icons**: All GUI title bars have been cleaned of cluttered suffixes (e.g., `" (Mega 3x3)"` has been removed in favor of clean breadcrumbs like `Stickers » Catalog`), paired with modern single/two-tone vector iconography.
 - **Zero Client Mods (100% Vanilla Compatible)**: Works natively on default Vanilla Minecraft Java Edition clients (1.12.x through 26.x+ Game Drops) and Bedrock Edition (iOS, Android, Xbox, PlayStation, Switch, Windows 10/11) via GeyserMC & Floodgate.
 - **Universal Multi-Era Compatibility (1.12.x – 26.x+)**: A single unified plugin and resource pack bridges legacy 1.12.x (via 2048x2048 HD Unicode sheets and OptiFine CIT), modern 1.14–1.20.4 (`CustomModelData`), 1.20.5+ (Item Components), and 1.21.4+ (`items/*.json` model definitions).
-- **Zero-Redundancy Texture Linking (95% Pack Size Reduction)**: Slices 50 MB pack bloat down to **~2.5 MB**. Each sticker is stored as a single 128x128 Retina master PNG referenced dynamically across GUI models, font glyphs, and CIT properties.
-- **3x3 Mega Showcase with 9-Slot Interactive Hitbox**: Players can switch between a 28-slot WhatsApp-style gallery and an enlarged 2.6x Mega Showcase. The surrounding 8 slots act as empty border-free canvases while mapping to the center sticker—clicking anywhere in the 3x3 grid sends the sticker instantly.
+- **Zero-Redundancy Texture Linking (95% Pack Size Reduction)**: Slices 50 MB pack bloat down to **~2.5 MB**. Each sticker is stored as a single 128x128 Retina master PNG referenced dynamically across GUI models, font glyphs, and CIT properties without file duplication.
+- **3x3 Mega Showcase with 9-Slot Interactive Hitbox**: Players can choose between a 28-slot WhatsApp-style gallery and an enlarged 2.6x Mega Showcase. The surrounding 8 slots act as empty border-free canvases while mapping to the center sticker—clicking anywhere in the 3x3 grid sends the sticker instantly.
 - **Shift + Left Click: "Burst Send"**: Players can send multiple stickers in rapid succession without the menu closing, mimicking mobile messaging apps (Discord/WhatsApp/Telegram).
 - **4-Tier Resilient Pack Delivery**: Embedded micro HTTP Server (ports 8085-8095), SSL/TLS reverse proxy (`public-url` for Nginx/Caddy/Cloudflare), native `server.properties` fallback, and external CDN routing.
 - **Cross-Platform Crossplay (GeyserMC Native)**: Automatic `.mcpack` generation and distribution to Geyser's packs directory, touch-friendly Cumulus Form UIs, and Bedrock Emote button shortcut triggers.
@@ -39,9 +44,12 @@ VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineere
 
 ## Technical Feature Matrix
 
-| Feature / Metric | VebaStickers v1.9.1 | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
+| Feature / Metric | VebaStickers v1.9.2 | ItemsAdder / Oraxen | Standard Chat Emoji Plugins |
 |---|---|---|---|
 | **Primary Architectural Focus** | **HD Chat Stickers, Emojis & GUI Vitrin** | Complete Server Asset Overhaul (Blocks/Items) | Low-Res 16x16 Text Glyphs |
+| **Container Texture Isolation** | **100% Pure Vanilla Preserved (No global chest overrides)** | Overwrites `generic_54.png` globally | None |
+| **Interactive Player Onboarding** | **27-Slot Setup Wizard (Full GUI vs Vanilla vs Text)** | None / Forced Pack Prompt | Plain Text Prompt |
+| **Live Cache Purge & Reset** | **Instant SHA-1 Purge & In-Game Re-Prompt (`/vsa remove-cache`)** | Manual Server Restart | None |
 | **Client Requirement** | **Zero (100% Vanilla Cross-Platform)** | Zero (Heavy Custom Resource Pack) | Zero |
 | **Supported Minecraft Range** | **1.12.x – 26.x+ (Universal)** | 1.16.5+ or 1.20.4+ | Mostly Modern Only |
 | **Pack Size for 100 Stickers** | **~2.5 MB (Zero-Redundancy Link)** | 35 – 60 MB+ | ~5 MB |
@@ -53,6 +61,92 @@ VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineere
 | **3D Floating Visuals** | **`TextDisplay` Billboard Hologram** | Particles / ArmorStand Hacks | None |
 | **Legacy 1.12.x HD Quality** | **2048x2048 HD Unicode + OptiFine CIT** | Unsupported / Dropped | Corrupted / 16x16 Pixelated |
 | **Multi-Language (i18n)** | **16 Languages (Auto-Detect Locale)** | Manual Localization | Single Language |
+
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
+
+## Interactive Setup & Onboarding Wizard (`PackPromptMenu`)
+
+VebaStickers respects your players' visual preferences. Instead of forcing heavy GUI modifications onto players who prefer classic Minecraft aesthetics, VebaStickers introduces the interactive **Pack Prompt Onboarding Wizard**:
+
+<table align="center" width="100%">
+  <tr>
+    <th style="text-align:center; width:50%;">1. Full HD + Modern GUI</th>
+    <th style="text-align:center; width:50%;">2. Stickers Only (Vanilla Chests)</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/2e84d112329668a6e18dea359384f3f098e2cca3.png" width="450" alt="Full HD + Modern GUI Option"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/9b3c36cd46612ff1e02b7a47373359dd5d95f386.png" width="450" alt="Stickers Only (Vanilla Chests) Option"/></td>
+  </tr>
+  <tr>
+    <th style="text-align:center; width:50%;">3. Skip Download (Text Mode)</th>
+    <th style="text-align:center; width:50%;">4. Remember My Preference</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/ce4ad743aba745ca533660f3d362ecdafbbe6637.png" width="450" alt="Skip Download Option"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/b75364f7681334a9a432f3556874defb09fea4bb.png" width="450" alt="Remember Preference Toggle"/></td>
+  </tr>
+</table>
+
+### The Four Setup Options Explained:
+1. **Full HD + Modern GUI (Slot 11)**:
+   - Downloads the complete resource pack.
+   - Enables HD chat stickers, modern neon inventory window frames, and custom vector icons.
+   - Recommended for players who want the ultimate, cutting-edge visual overhaul.
+2. **Stickers Only - Vanilla GUI (Slot 13)**:
+   - Downloads the sticker resource pack for chat and item slots.
+   - **Preserves 100% classic vanilla Minecraft chests**: All GUI menus remain standard vanilla double chests with classic icons (Nether Star, Emerald, Clock, Arrow), while the stickers inside remain full HD emojis!
+3. **Skip Download - Text Mode (Slot 15)**:
+   - Declines the resource pack download.
+   - Stickers display as clean fallback text codes (e.g. `:pepe:`) in chat with interactive hover badges. Zero download overhead or network lag.
+4. **Remember My Preference Toggle (Slot 22)**:
+   - Allows players to toggle whether the server should remember their decision permanently or re-prompt them upon each login.
+   - Players can re-open this menu at any time by running `/sticker pack`!
+
+### Dynamic Cache Purge & Preference Reset (`/vebasticker remove-cache`):
+- When an administrator runs `/vsa remove-cache` or `/vebasticker remove-cache`, the plugin:
+  1. Purges cached SHA-1 checksums and regenerates fresh assets.
+  2. Sends an unbind packet to the client (`Player.removeResourcePacks()`) to unload the old pack.
+  3. Completely wipes the player's stored decision (`pack_decision` and `has_prompted_pack`).
+  4. Immediately opens the **Pack Prompt Onboarding Wizard** so the player can choose their preferred mode again on-the-spot!
+  5. Supports `/vsa remove-cache all` (prompts all online players) or `/vsa remove-cache <player>` (supports online and offline player profiles).
+
+<hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
+
+## Dual Display Modes: 28-Slot WhatsApp Grid & 3x3 Mega Vitrin & Bedrock Gui
+
+Players can effortlessly switch between two distinct browsing experiences using the in-game display mode toggle:
+
+<table align="center" width="100%">
+  <tr>
+    <th style="text-align:center; width:50%;">WhatsApp Gallery Mode (28-Slot Grid)</th>
+    <th style="text-align:center; width:50%;">Mega Vitrin Mode (Enlarged 3x3 Stage)</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/5a36704f3a3a7925b603140364b6cd8e1864a94b.png" width="450" alt="WhatsApp Style 28-Slot Gallery"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/fda6d4df36a49b32911f7ab959c8dfc2af175b81.png" width="450" alt="Mega Vitrin 3x3 Showcase"/></td>
+  </tr>
+</table>
+
+<h3 align="center">Bedrock Edition UI Showcase</h3>
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="33%"><img src="https://cdn.modrinth.com/data/cached_images/b9ae74ae180bacd0a60c4e09ec2da1e39be595ca.jpeg" width="300" alt="Bedrock UI 1"/></td>
+    <td align="center" width="33%"><img src="https://cdn.modrinth.com/data/cached_images/2a48ce478b846548752006c7a67370b73ec956bd.jpeg" width="300" alt="Bedrock UI 2"/></td>
+    <td align="center" width="33%"><img src="https://cdn.modrinth.com/data/cached_images/aa11a209d9d7844634d493f92a30994543325c2d.jpeg" width="300" alt="Bedrock UI 3"/></td>
+  </tr>
+</table>
+
+
+### 1. WhatsApp-Style 28-Slot Gallery Grid (`/sticker`)
+- A dense, multi-sticker layout optimized for rapid chatting and extensive sticker collections.
+- Displays 28 stickers per page with category navigation tabs, favorites filter, recents list, sound toggles, and live search.
+- When **Stickers Only** mode is selected, this menu renders inside a 100% authentic vanilla Minecraft chest!
+
+### 2. 3x3 Mega Vitrin Showcase
+- Enlarges the selected sticker to **2.6x scale**, commanding center stage.
+- **Continuous 9-Slot Clickable Hitbox**: The surrounding 8 slots act as empty canvas slots while mapping directly to the center sticker. Clicking anywhere within the 3x3 area sends the sticker immediately!
+- **Pure Container Isolation**: Uses zero-width negative-space font glyphs (`\uF808\uEE01\uF8F0`) to render the isolated neon frame, leaving normal survival chests completely untouched.
+- **Clean Title Bar**: Clean breadcrumb header (e.g. `Stickers » Catalog`) without unsightly text suffixes.
 
 <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
@@ -113,6 +207,7 @@ VebaStickers is an enterprise-grade, high-performance Minecraft plugin engineere
     </tr>
   </tbody>
 </table>
+
 
 ### 1. Zero-Redundancy Texture Linking & Universal Pack
 - **Single Source of Truth**: All stickers are compiled into standard 128x128 Retina PNGs at `assets/minecraft/textures/item/stickers/<id>.png`.
@@ -187,27 +282,6 @@ Minecraft 1.12.x lacks JSON bitmap font providers (`font/default.json`). VebaSti
 
 ### GUI Catalogs & Burst Send
 
-<table align="center">
-  <tr>
-    <th style="text-align:center">Java Edition GUI</th>
-    <th style="text-align:center">Bedrock Edition UI</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/23090b6e27219f7f0e0f9f71579bf97909b299f0.png" width="300" alt="Java GUI 1"/></td>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/b9ae74ae180bacd0a60c4e09ec2da1e39be595ca.jpeg" width="300" alt="Bedrock UI 1"/></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/39801bc2433d31918fef6b1d99171d49e11eab41.png" width="300" alt="Java GUI 2"/></td>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/2a48ce478b846548752006c7a67370b73ec956bd.jpeg" width="300" alt="Bedrock UI 2"/></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/63b6eea0b66e0b5da2f84aa09d0637d591373a6d.png" width="300" alt="Java GUI 3"/></td>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/aa11a209d9d7844634d493f92a30994543325c2d.jpeg" width="300" alt="Bedrock UI 3"/></td>
-  </tr>
-</table>
-
-- **WhatsApp-Style 28-Slot Gallery (`/sticker`)**: Compact, paginated chest inventory with category tabs, search button, and sound toggles.
-- **3x3 Mega Vitrin Showcase**: Switch to an enlarged 2.6x display model. All 9 slots in the 3x3 block form a continuous clickable hitbox.
 - **Shift + Left Click ("Burst Send")**: Send stickers repeatedly without closing the menu.
 - **Normal Left Click**: Sends sticker to chat and closes menu.
 - **Right Click**: Adds or removes sticker from personal favorites (`/sticker favorites`).
@@ -243,12 +317,12 @@ Minecraft 1.12.x lacks JSON bitmap font providers (`font/default.json`). VebaSti
   </tr>
 </table>
 
-Built-in support for 16 languages with automatic client locale detection (`per-player-language: true`):
+Built-in support for 16 languages with automatic client locale detection (`per-player-language: true`):  
 `en` (English), `tr` (Turkish), `de` (German), `es` (Spanish), `fr` (French), `pt` (Portuguese), `ru` (Russian), `zh` (Chinese), `ja` (Japanese), `ko` (Korean), `it` (Italian), `nl` (Dutch), `pl` (Polish), `ar` (Arabic), `hi` (Hindi), `uk` (Ukrainian).
 
 <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
 
-## Administrative Operations & Controls
+## Administrative Operations & Overhauled Dashboard (`/vsa`)
 
 <table align="center">
   <tr>
@@ -256,11 +330,14 @@ Built-in support for 16 languages with automatic client locale detection (`per-p
     <th style="text-align:center">Integrity Status Panel</th>
   </tr>
   <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/fbbb28ab6f38738c62c7c8919ce0ab0548f96dd4.png" width="300" alt="Admin GUI 1"/></td>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/88e573e0aa9495fa01b2dfbbcf845a61f2b5e2ad.png" width="300" alt="Admin GUI 2"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/7244059b0edb2e36fd510b3920e9ebf0f6866c27.png" width="300" alt="Admin GUI 1"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/e572e91fb0adbd8ace9cb72aa9fc4356ecacfe22.png" width="300" alt="Admin GUI 2"/></td>
   </tr>
 </table>
 
+- **Symmetrical 6-Row Layouts**: Redesigned all 14 administrative views with slate gray glass borders, dedicated header breadcrumbs (Row 0), and persistent footer navigation controls (Row 5).
+- **Persistent Pagination Arrows**: Eliminates asymmetric holes on first/last pages with disabled-state indicators (`◀ First Page`, `Last Page ▶`).
+- **Live Cache Purge (`/vsa remove-cache [all|<player>]`)**: Purges pack cache, forces SHA-1 regeneration, clears stored player choices, and immediately opens the setup onboarding wizard.
 - **Live URL Sticker Ingestion (`/stickeradmin add <id> <url>`)**: Downloads PNG, converts to 128x128 Retina, updates unicode allocations, compiles models, and regenerates the pack live in the background.
 - **Instant Sticker Removal (`/stickeradmin remove <id>`)**: Cleans up assets, models, and font bindings on the fly.
 - **Bulk ZIP Import (`/stickeradmin import <pack>`)**: Bulk-imports complete sticker folders into categories without manual file edits.
@@ -282,26 +359,28 @@ Built-in support for 16 languages with automatic client locale detection (`per-p
 | `/sticker favorites` | — | Opens personal favorited stickers | `sticker.gui` | Everyone |
 | `/sticker lang [code]` | — | Opens language selector or sets language | `sticker.gui` | Everyone |
 | `/sticker toggle` | — | Toggles sticker rendering visibility | `sticker.gui` | Everyone |
-| `/sticker pack` | — | Requests resource pack download prompt | `sticker.gui` | Everyone |
+| `/sticker pack` | `/s rp`, `/s indir` | Re-opens interactive setup onboarding wizard | `sticker.gui` | Everyone |
+| `/sticker remove-cache` | `/s clearcache` | Purges your pack cache and re-opens setup wizard | `sticker.admin` | OP |
 | `/sticker help` | — | Displays command help menu | `sticker.gui` | Everyone |
 | `/sbook` | `/stickerbook`, `/skitap` | Opens sticker collection as a Book GUI | `sticker.gui` | Everyone |
 
 ### Administrative Commands
 
-| Command | Description | Permission | Default |
-|---|---|---|---|
-| `/stickeradmin gui` | Opens administrative dashboard | `sticker.admin` | OP |
-| `/stickeradmin add <id> <url>` | Adds sticker from image URL and recompiles | `sticker.admin` | OP |
-| `/stickeradmin remove <id>` | Deletes sticker and updates pack definitions | `sticker.admin` | OP |
-| `/stickeradmin import <zip>` | Imports bulk sticker ZIP archive | `sticker.admin` | OP |
-| `/stickeradmin give <player> <pack>` | Grants sticker pack access to player | `sticker.admin` | OP |
-| `/stickeradmin ban <player> [reason]` | Suspends a player from sending stickers | `sticker.admin` | OP |
-| `/stickeradmin unban <player>` | Restores sticker privileges for a player | `sticker.admin` | OP |
-| `/stickeradmin sync` | Forces full pack re-generation and SHA-1 update | `sticker.admin` | OP |
-| `/stickeradmin exportbedrock` | Compiles and pushes Bedrock `.mcpack` to Geyser | `sticker.admin` | OP |
-| `/stickeradmin status` | Displays web server and delivery diagnostics | `sticker.admin` | OP |
-| `/stickeradmin verify` | Runs automated 6-point system verification | `sticker.admin` | OP |
-| `/stickeradmin reload` | Reloads configurations, stickers, and languages | `sticker.admin` | OP |
+| Command | Aliases | Description | Permission | Default |
+|---|---|---|---|---|
+| `/vsa` | `/stickeradmin gui` | Opens the overhauled administrative dashboard | `sticker.admin` | OP |
+| `/vsa remove-cache [all\|<player>]` | `/sadmin purge-cache` | Purges cache, resets choice & prompts setup wizard | `sticker.admin` | OP |
+| `/stickeradmin add <id> <url>` | — | Adds sticker from image URL and recompiles | `sticker.admin` | OP |
+| `/stickeradmin remove <id>` | — | Deletes sticker and updates pack definitions | `sticker.admin` | OP |
+| `/stickeradmin import <zip>` | — | Imports bulk sticker ZIP archive | `sticker.admin` | OP |
+| `/stickeradmin give <player> <pack>` | — | Grants sticker pack access to player | `sticker.admin` | OP |
+| `/stickeradmin ban <player> [reason]` | — | Suspends a player from sending stickers | `sticker.admin` | OP |
+| `/stickeradmin unban <player>` | — | Restores sticker privileges for a player | `sticker.admin` | OP |
+| `/stickeradmin sync` | — | Forces full pack re-generation and SHA-1 update | `sticker.admin` | OP |
+| `/stickeradmin exportbedrock` | — | Compiles and pushes Bedrock `.mcpack` to Geyser | `sticker.admin` | OP |
+| `/stickeradmin status` | — | Displays web server and delivery diagnostics | `sticker.admin` | OP |
+| `/stickeradmin verify` | — | Runs automated 6-point system verification | `sticker.admin` | OP |
+| `/stickeradmin reload` | `/vsa rl` | Reloads configurations, stickers, and languages | `sticker.admin` | OP |
 
 ### Permission Hierarchy
 
@@ -321,22 +400,32 @@ Built-in support for 16 languages with automatic client locale detection (`per-p
 **1. Does VebaStickers require client-side mods or custom launchers?**  
 No. VebaStickers runs 100% server-side. Vanilla Java Edition and Bedrock Edition clients receive the lightweight resource pack automatically upon joining.
 
-**2. How does VebaStickers support both 1.12.2 and modern 1.21.4 / 26.x+ Game Drops in one pack?**  
+**2. How does VebaStickers prevent overwriting standard Minecraft chests?**  
+In v1.9.2, VebaStickers guarantees **Pure Vanilla Container Isolation**. Normal survival/creative double chests, single chests, Ender chests, and admin menus use the standard vanilla Minecraft texture. Only the custom Mega Vitrin inventory renders custom backgrounds by utilizing invisible negative-space font glyphs (`\uF808\uEE01\uF8F0`) and OptiGUI title matching (`\uEE01`), preventing any global texture leaks.
+
+**3. What is the difference between "Full HD + Modern GUI" and "Stickers Only"?**  
+- **Full HD + Modern GUI**: Displays both HD chat stickers and custom modern GUI window borders with custom icons.
+- **Stickers Only**: Downloads the stickers so emojis display in HD in chat and in GUI slots, but keeps the inventory window 100% classic vanilla Minecraft chest style.
+
+**4. How can players switch between display modes or reset their choices?**  
+Players can type `/sticker pack` at any time to open the 27-slot setup wizard and re-select their preference. Administrators can also run `/vsa remove-cache [all|<player>]` to reset choices and re-prompt the setup wizard.
+
+**5. How does VebaStickers support both 1.12.2 and modern 1.21.4 / 26.x+ Game Drops in one pack?**  
 Through our Dual-Font Bridge and Universal metadata architecture:
 - Modern clients (1.13+) parse `font/default.json` and model definitions.
 - Legacy 1.12.x clients read the auto-generated 2048x2048 `unicode_page_e1.png` font sheet and OptiFine CIT definitions.
 - The `pack.mcmeta` specifies `pack_format: 3` with `supported_formats: [3, 99]`, satisfying both old and new client parsers with zero warnings.
 
-**3. What happens if port 8085 is blocked by my server host?**  
+**6. What happens if port 8085 is blocked by my server host?**  
 VebaStickers' 4-tier network delivery automatically scans ports 8085-8095. If all HTTP ports are restricted, it seamlessly falls back to updating `server.properties` native pack delivery or routes through an SSL reverse proxy (`http-server.public-url`) or external CDN.
 
-**4. How does the 3x3 Mega Vitrin showcase work?**  
+**7. How does the 3x3 Mega Vitrin showcase work?**  
 Instead of cutting stickers into 9 separate physical files, VebaStickers renders a single 2.6x scaled mega model in the center slot while clearing adjacent slots to `AIR`. All 9 slots register in the click listener, providing a massive, seamless hitbox.
 
-**5. How does Shift + Left Click "Burst Send" work?**  
+**8. How does Shift + Left Click "Burst Send" work?**  
 Normal Left-Click sends the sticker and closes the inventory. Shift + Left-Click sends the sticker to chat with full sound effects and cooldown validation while keeping the menu open, allowing rapid sticker combos.
 
-**6. Are Bedrock Edition players supported?**  
+**9. Are Bedrock Edition players supported?**  
 Yes. With GeyserMC and Floodgate, VebaStickers generates a native `.mcpack`, delivers touch-friendly Bedrock Form GUIs, and maps the Bedrock Emote button directly to the sticker menu.
 
 <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent); margin: 36px 0;" />
