@@ -330,8 +330,8 @@ Built-in support for 16 languages with automatic client locale detection (`per-p
     <th style="text-align:center">Integrity Status Panel</th>
   </tr>
   <tr>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/7244059b0edb2e36fd510b3920e9ebf0f6866c27.png" width="300" alt="Admin GUI 1"/></td>
-    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/e572e91fb0adbd8ace9cb72aa9fc4356ecacfe22.png" width="300" alt="Admin GUI 2"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/7244059b0edb2e36fd510b3920e9ebf0f6866c27.png" width="50%" alt="Admin GUI 1"/></td>
+    <td align="center"><img src="https://cdn.modrinth.com/data/cached_images/e572e91fb0adbd8ace9cb72aa9fc4356ecacfe22.png" width="50%" alt="Admin GUI 2"/></td>
   </tr>
 </table>
 
